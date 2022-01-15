@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
 
-function App() {
+//Routing
+import {Routes, Route} from 'react-router-dom';
+
+// Components
+import Navbar from './components/Navbar/Navbar';
+import Home from './components/Home/Home';
+import Destination from './components/Destination/Destination';
+import Crew from './components/Crew/Crew';
+import Technology from './components/Technology/Technology';
+
+// Styling
+import './index.css';
+
+const App = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <Routes>
+        <Route path="/" exact element={<Home />}/>
+        <Route path="/destination" exact element={<Destination />}/>
+        <Route path="/crew" exact element={<Crew />}/>
+        <Route path="/technology" exact element={<Technology />}/>
+      </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
